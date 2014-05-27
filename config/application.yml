@@ -1,0 +1,13 @@
+defaults: &defaults
+  onemap_api_key: xkg8VRu6Ol+gMH+SUamkRIEB7fKzhwMvfMo/2U8UJcFhdvR4yN1GutmUIA3A6r3LDhot215OVVkZvNRzjl28TNUZgYFSswOi
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+  onemap_api_key: o4AXRje/hx0BgO4owE0iK/4R/MXnMuXtyFF2loCYEB+OJfHp0CSeHRg6c5Hv3dxbtzUfvzqM0tox+cOdBxW+GSBGTgXrC9mj
+
+production:
+  # onemap_api_key: aiMOm0OILz66rEUHeiMvqNB3fuf5ReFUUgzd4gbicNewTxp+Fg+GQkX4v8WiHqbfHqpIUKaOLwNtwcbFMFORAqpft5h+NEFVwYIxdAHNYVliZ5WRZJ/zYA==|mv73ZvjFcSo=
+  onemap_api_key: lQn/NAetANKREZZ8h+yXjWouVyoDJQm0XMwPno17nLmD/al09RrBgj26nYlFAsLQhUzi5zWdcIhdOkgoSA3HHYKwLBDyNjRehWnm7nN+3SQ3V7yh3qY3vA==|mv73ZvjFcSo=
