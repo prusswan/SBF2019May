@@ -35,7 +35,7 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 
 
-gem 'sbf' #, github: 'prusswan/sbf' #, branch: 'engine-migrations'
+gem 'sbf', github: 'prusswan/sbf' #, branch: 'engine-migrations'
 # gem 'sbf', path: '~/Desktop/sbf'
 
 gem 'settingslogic'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130912181314) do
+ActiveRecord::Schema.define(version: 20140604185348) do
 
   create_table "blocks", force: true do |t|
     t.string   "no",            null: false
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20130912181314) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "estate_id",     null: false
+    t.float    "lat"
+    t.float    "long"
   end
 
   add_index "blocks", ["estate_id"], name: "index_blocks_on_estate_id", using: :btree
