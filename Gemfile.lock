@@ -36,6 +36,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    activesupport-decorators (1.0.3)
+      railties (>= 3.2.8)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
     builder (3.2.2)
@@ -158,6 +160,8 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     remotipart (1.2.1)
+    render_csv (2.0.0)
+      rails (>= 3.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rspec-core (2.14.8)
@@ -227,6 +231,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport-decorators (~> 1.0)
   byebug
   capybara
   capybara-webkit
@@ -239,6 +244,7 @@ DEPENDENCIES
   poltergeist
   rails (~> 4.1.1)
   rails_12factor
+  render_csv
   rspec-rails (~> 2.0)
   sass-rails (~> 4.0.3)
   sbf!

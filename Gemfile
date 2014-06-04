@@ -39,6 +39,8 @@ gem 'sbf', github: 'prusswan/sbf' #, branch: 'engine-migrations'
 # gem 'sbf', path: '~/Desktop/sbf'
 
 gem 'settingslogic'
+gem 'activesupport-decorators', '~> 1.0'
+gem 'render_csv'
 
 group :development, :test do
   gem 'byebug'
