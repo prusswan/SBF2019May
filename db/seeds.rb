@@ -3578,7 +3578,7 @@ Unit.create!([
   {no: "#13-177", flat_type: "4-Room", block_id: 493, price: 332100, area: 92, quota_id: 664},
   {no: "#16-177", flat_type: "4-Room", block_id: 493, price: 336300, area: 92, quota_id: 664},
   {no: "#05-179", flat_type: "4-Room", block_id: 493, price: 309900, area: 92, quota_id: 664},
-  {no: "#22-163", flat_type: "665", block_id: 494, price: 340000, area: 4, quota_id: 665},
+  {no: "#22-163", flat_type: "4-Room", block_id: 494, price: 340000, area: 92, quota_id: 665},
   {no: "#12-329*", flat_type: "4-Room", block_id: 495, price: 329000, area: 93, quota_id: 666},
   {no: "#06-330", flat_type: "4-Room", block_id: 496, price: 295100, area: 93, quota_id: 667},
   {no: "#25-327", flat_type: "4-Room", block_id: 497, price: 348700, area: 92, quota_id: 668},
