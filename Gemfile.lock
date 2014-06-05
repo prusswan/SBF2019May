@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/prusswan/sbf.git
-  revision: 45854a9c5b78df832c0f4e32c0e037391103b3ca
+  revision: e62a38ed59018233f7baeb405c8ff3b29abf6525
   specs:
     sbf (0.0.2)
       cancan

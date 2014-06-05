@@ -7,7 +7,7 @@ class BlocksController < ApplicationController
       format.csv do
         render csv: @units,
           only: [:price, :area, :flat_type],
-          add_methods: [:address, :price_per_area, :delivery_date, :lease_start]
+          add_methods: [:address, :long, :lat, :price_per_area, :delivery_date, :lease_start]
       end
     end
   end
@@ -19,8 +19,7 @@ class BlocksController < ApplicationController
       return
     end
 
-    @block.lat = params[:lat]
-    @block.long = params[:long]
+    @block.long, @block.lat = params[:longlat].split(",").map(&:to_f)
     @block.save
     render :json => {status: :ok}
   end

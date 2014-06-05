@@ -24,13 +24,19 @@
         row = results[0];
         console.log(results);
 
-        $.ajax({ url: '/blocks/' + id,
-          type: 'POST',
-          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-          data: { id: id, address: address, long: row.X, lat: row.Y },
-          success: function(response) {
-            console.log(row, 'updated coords for block '+ id);
-          }
+        var CoordConvertorObj= new CoordConvertor()
+        CoordConvertorObj.ConvertCoordinate(row.X+','+row.Y,3414,4326, function(result){
+
+          console.log(result, 4326);
+
+          $.ajax({ url: '/blocks/' + id,
+            type: 'POST',
+            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+            data: { id: id, address: address, longlat: result},
+            success: function(response) {
+              console.log(result, 'updated coords for block '+ id);
+            }
+          });
         });
       }
     });
@@ -38,7 +44,7 @@
   }
 
   function findAll() {
-    <% Block.all.each do |b| %>
+    <% Block.where(lat: nil).each do |b| %>
       findCoords(<%=b.id%>, "<%=b.long_address%>");
     <% end %>
   }
