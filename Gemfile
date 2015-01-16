@@ -35,8 +35,8 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 
 
-gem 'sbf', github: 'prusswan/sbf' #, branch: 'engine-migrations'
-# gem 'sbf', path: '~/Desktop/sbf'
+# gem 'sbf', github: 'prusswan/sbf' #, branch: 'engine-migrations'
+gem 'sbf', path: '~/Projects/sbf'
 
 gem 'settingslogic'
 gem 'activesupport-decorators', '~> 1.0'
