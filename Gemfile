@@ -49,7 +49,7 @@ group :development, :test do
   gem 'poltergeist'
   gem 'capybara-webkit'
 
-  gem 'mysql2'
+  gem 'mysql2', '~> 0.3.18'
 
   # gem 'protected_attributes'
 
