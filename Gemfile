@@ -44,7 +44,7 @@ gem 'render_csv'
 
 group :development, :test do
   gem 'byebug'
-  gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails', '~> 3.5'
   gem 'capybara'
   gem 'poltergeist'
   gem 'capybara-webkit'
