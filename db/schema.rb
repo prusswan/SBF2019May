@@ -14,16 +14,16 @@
 ActiveRecord::Schema.define(version: 20151125083908) do
 
   create_table "blocks", force: true do |t|
-    t.string   "no",            null: false
-    t.string   "street",        null: false
+    t.string   "no",                       null: false
+    t.string   "street",                   null: false
     t.string   "probable_date"
-    t.string   "delivery_date", null: false
-    t.string   "lease_start",   null: false
+    t.string   "delivery_date",            null: false
+    t.string   "lease_start",              null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "estate_id",     null: false
-    t.float    "lat"
-    t.float    "long"
+    t.integer  "estate_id",                null: false
+    t.float    "lat",           limit: 24
+    t.float    "long",          limit: 24
     t.string   "link"
   end
 
