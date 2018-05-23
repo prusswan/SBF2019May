@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.1'
@@ -35,8 +36,8 @@ gem 'spring',        group: :development
 # gem 'capistrano-rails', group: :development
 
 
-# gem 'sbf', github: 'prusswan/sbf' #, branch: 'engine-migrations'
-gem 'sbf', path: '~/Projects/sbf'
+gem 'sbf', github: 'prusswan/sbf' #, branch: 'engine-migrations'
+# gem 'sbf', path: '~/Projects/sbf'
 
 gem 'settingslogic'
 gem 'activesupport-decorators', '~> 1.0'

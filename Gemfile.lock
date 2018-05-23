@@ -1,5 +1,6 @@
-PATH
-  remote: ../sbf
+GIT
+  remote: https://github.com/prusswan/sbf.git
+  revision: ec2643cf4297d4ac39f046a32031047c9c3a2c82
   specs:
     sbf (0.0.2)
       cancan
