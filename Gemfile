@@ -48,6 +48,8 @@ group :development, :test do
   gem 'capybara'
   gem 'poltergeist'
   gem 'capybara-webkit'
+  gem 'capybara-selenium'
+  gem 'chromedriver-helper'
 
   gem 'mysql2', '~> 0.3.18'
 
