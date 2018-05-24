@@ -57,7 +57,7 @@ group :development, :test do
   # gem 'protected_attributes'
 
   # for pushing db seed to heroku
-  gem 'heroku', '~> 2.40'
+  # gem 'heroku', '~> 2.40'
   gem 'taps'
   gem 'sqlite3'
 end

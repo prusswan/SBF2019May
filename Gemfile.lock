@@ -87,7 +87,6 @@ GEM
     debug_inspector (0.0.3)
     diff-lcs (1.3)
     erubis (2.7.0)
-    excon (0.33.0)
     execjs (2.7.0)
     ffi (1.9.23)
     font-awesome-rails (4.7.0.4)
@@ -97,15 +96,6 @@ GEM
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
-    heroku (2.41.0)
-      heroku-api (~> 0.3.7)
-      launchy (>= 0.3.2)
-      netrc (~> 0.7.7)
-      rest-client (~> 1.6.1)
-      rubyzip
-    heroku-api (0.3.18)
-      excon (~> 0.27)
-      multi_json (~> 1.8)
     hike (1.2.3)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
@@ -131,8 +121,6 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
-    launchy (2.4.2)
-      addressable (~> 2.3)
     loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -147,7 +135,6 @@ GEM
     multi_json (1.13.1)
     mysql2 (0.4.10)
     nested_form (0.3.2)
-    netrc (0.7.7)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     pg (0.17.1)
@@ -298,7 +285,6 @@ DEPENDENCIES
   capybara-webkit
   chromedriver-helper
   coffee-rails (~> 4.0.0)
-  heroku (~> 2.40)
   jbuilder (~> 2.0)
   jquery-rails
   mysql2 (~> 0.4.0)
