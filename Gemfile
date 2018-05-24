@@ -65,6 +65,7 @@ end
 group :development do
   gem 'seed_dump'
   gem 'web-console', '~> 2.0'
+  gem 'quiet_assets'
 end
 
 group :production do
