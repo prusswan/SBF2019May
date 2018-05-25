@@ -19,6 +19,8 @@ RailsAdmin.config do |config|
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
+  config.main_app_name = ['SBF', Rails.application.class.parent_name.split(/SBF/i).last.titleize]
+
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
