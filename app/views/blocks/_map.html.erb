@@ -100,7 +100,8 @@
       });
     };
 
-    $(document).on('rails_admin.dom_ready', function(e) {
+    // prevent duplicate event handlers: https://github.com/defunkt/jquery-pjax/issues/570
+    $(document).off('rails_admin.dom_ready').on('rails_admin.dom_ready', function(e) {
       var path = "<%= request.path %>";
       console.log(path, window.location.pathname, 'event:', e);
 
