@@ -20,7 +20,7 @@ class BlocksController < ApplicationController
     end
 
     # upgrade to Rails 5 for native JSON column support
-    # @block.geocode_result = params[:geocode_result]
+    @block.geocode_result = params[:geocode_result]
 
     @block.long, @block.lat = params[:longlat].split(",").map(&:to_f)
     @block.save
