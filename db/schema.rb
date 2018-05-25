@@ -13,38 +13,38 @@
 
 ActiveRecord::Schema.define(version: 20151125083908) do
 
-  create_table "blocks", force: true do |t|
-    t.string   "no",                       null: false
-    t.string   "street",                   null: false
-    t.string   "probable_date"
-    t.string   "delivery_date",            null: false
-    t.string   "lease_start",              null: false
+  create_table "blocks", force: :cascade do |t|
+    t.string   "no",            limit: 255,                           null: false
+    t.string   "street",        limit: 255,                           null: false
+    t.string   "probable_date", limit: 255
+    t.string   "delivery_date", limit: 255,                           null: false
+    t.string   "lease_start",   limit: 255,                           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "estate_id",                null: false
-    t.float    "lat",           limit: 24
-    t.float    "long",          limit: 24
-    t.string   "link"
+    t.integer  "estate_id",     limit: 4,                             null: false
+    t.decimal  "lat",                       precision: 18, scale: 15
+    t.decimal  "long",                      precision: 18, scale: 15
+    t.string   "link",          limit: 255
   end
 
   add_index "blocks", ["estate_id"], name: "index_blocks_on_estate_id", using: :btree
   add_index "blocks", ["no", "street"], name: "index_blocks_on_no_and_street", unique: true, using: :btree
 
-  create_table "estates", force: true do |t|
-    t.string   "name",       null: false
-    t.integer  "total",      null: false
+  create_table "estates", force: :cascade do |t|
+    t.string   "name",       limit: 255, null: false
+    t.integer  "total",      limit: 4,   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "estates", ["name"], name: "index_estates_on_name", unique: true, using: :btree
 
-  create_table "quota", force: true do |t|
-    t.string   "flat_type",  null: false
-    t.integer  "malay",      null: false
-    t.integer  "chinese",    null: false
-    t.integer  "others",     null: false
-    t.integer  "block_id",   null: false
+  create_table "quota", force: :cascade do |t|
+    t.string   "flat_type",  limit: 255, null: false
+    t.integer  "malay",      limit: 4,   null: false
+    t.integer  "chinese",    limit: 4,   null: false
+    t.integer  "others",     limit: 4,   null: false
+    t.integer  "block_id",   limit: 4,   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -52,16 +52,16 @@ ActiveRecord::Schema.define(version: 20151125083908) do
   add_index "quota", ["block_id"], name: "index_quota_on_block_id", using: :btree
   add_index "quota", ["flat_type", "block_id"], name: "index_quota_on_flat_type_and_block_id", unique: true, using: :btree
 
-  create_table "units", force: true do |t|
-    t.string   "no",         null: false
-    t.string   "flat_type",  null: false
-    t.integer  "block_id",   null: false
+  create_table "units", force: :cascade do |t|
+    t.string   "no",         limit: 255, null: false
+    t.string   "flat_type",  limit: 255, null: false
+    t.integer  "block_id",   limit: 4,   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "price",      null: false
-    t.integer  "area",       null: false
-    t.integer  "quota_id",   null: false
-    t.string   "price_str"
+    t.integer  "price",      limit: 4,   null: false
+    t.integer  "area",       limit: 4,   null: false
+    t.integer  "quota_id",   limit: 4,   null: false
+    t.string   "price_str",  limit: 255
   end
 
   add_index "units", ["block_id"], name: "index_units_on_block_id", using: :btree

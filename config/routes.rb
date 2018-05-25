@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'blocks' => 'blocks#index'
+  get 'blocks/all' => 'blocks#index'
   post 'blocks/:id' => 'blocks#updateCoords'
 
   # The priority is based upon order of creation: first created -> highest priority.

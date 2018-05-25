@@ -52,7 +52,7 @@ group :development, :test do
   gem 'capybara-selenium'
   gem 'chromedriver-helper'
 
-  gem 'mysql2', '~> 0.3.18'
+  gem 'mysql2', '~> 0.4.0'
 
   # gem 'protected_attributes'
 

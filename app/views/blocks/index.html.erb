@@ -3,11 +3,11 @@
 <script type="text/javascript">
   var coords;
 
-  $.ajaxSetup({
-    headers: {
-      'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-    }
-  });
+  // $.ajaxSetup({
+  //   headers: {
+  //     'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+  //   }
+  // });
 
   function findCoords(id, address) {
     var basicSearch = new BasicSearch;
@@ -28,24 +28,48 @@
         CoordConvertorObj.ConvertCoordinate(row.X+','+row.Y,3414,4326, function(result){
 
           console.log(result, 4326);
+          updateAddress(id, address, result);
 
-          $.ajax({ url: '/blocks/' + id,
-            type: 'POST',
-            beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
-            data: { id: id, address: address, longlat: result},
-            success: function(response) {
-              console.log(result, 'updated coords for block '+ id);
-            }
-          });
         });
       }
     });
     // dojo.addOnLoad(createMap);
   }
 
+  function findCoords2(id, address) {
+    $.ajax({
+      url: 'https://developers.onemap.sg/commonapi/search?searchVal=' + encodeURI(address) + '&returnGeom=Y&getAddrDetails=Y&pageNum=1',
+      success: function(result){
+        console.log('geocoding', result);
+
+        if (result['results'].length < 1) return;
+
+        var location = result['results'][0];
+        var lat = location['LATITUDE'];
+        var lng = location['LONGITUDE'];
+
+        var longlat = lng + "," + lat;
+        updateAddress(id, address, longlat, result['results']);
+      }
+    });
+  }
+
+  function updateAddress(id, address, longlat, result) {
+    $.ajax({ url: '/blocks/' + id,
+      type: 'POST',
+      beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+      data: { id: id, address: address, longlat: longlat, geocode_result: result},
+      success: function(response) {
+        console.log(longlat, 'updated coords for block '+ id);
+      }
+    });
+  }
+
   function findAll() {
-    <% Block.where(lat: nil).each do |b| %>
-      findCoords(<%=b.id%>, "<%=b.long_address%>");
+    <% Block.where(lat: nil).limit(10).each do |b| %>
+      findCoords2(<%=b.id%>, "<%=b.long_address%>");
     <% end %>
   }
+
+  findAll();
 </script>

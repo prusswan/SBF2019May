@@ -145,7 +145,7 @@ GEM
     mini_portile2 (2.3.0)
     minitest (5.11.3)
     multi_json (1.13.1)
-    mysql2 (0.3.21)
+    mysql2 (0.4.10)
     nested_form (0.3.2)
     netrc (0.7.7)
     nokogiri (1.8.2)
@@ -301,7 +301,7 @@ DEPENDENCIES
   heroku (~> 2.40)
   jbuilder (~> 2.0)
   jquery-rails
-  mysql2 (~> 0.3.18)
+  mysql2 (~> 0.4.0)
   pg
   poltergeist
   rails (~> 4.2.1)
