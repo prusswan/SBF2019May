@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css">
 
-  <script type="text/javascript" src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
 <% end %>
 
 
@@ -24,19 +23,31 @@
   (function() {
     var initMap, loadLeaflet, showBlock;
 
+    function loadScript( url, callback ) {
+      var script = document.createElement( "script" )
+      script.type = "text/javascript";
+      if(script.readyState) {  //IE
+        script.onreadystatechange = function() {
+          if ( script.readyState === "loaded" || script.readyState === "complete") {
+            script.onreadystatechange = null;
+            callback();
+          }
+        };
+      } else {  //Others
+        script.onload = function() {
+          callback();
+        };
+      }
+
+      script.src = url;
+      document.getElementsByTagName( "body" )[0].appendChild( script );
+    }
+
     loadLeaflet = function() {
-      var script;
-      script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = 'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js';
-      // script.onload = 'initMap()';
-      script.onreadystatechange = function() {
-        if (script.readyState == 'loaded') {
-          document.head.appendChild(script);
-          console.log('leaflet loaded');
-          initMap();
-        }
-      };
+      loadScript('https://unpkg.com/leaflet@1.3.1/dist/leaflet.js', function() {
+        console.log('leaflet loaded, attempt to initMap');
+        initMap();
+      });
     };
 
     initMap = function() {
@@ -76,8 +87,9 @@
           lat = location['LATITUDE'];
           lng = location['LONGITUDE'];
           map = window.map;
-          console.log('invalidateSize');
+
           if (typeof L === 'undefined') {
+            console.log("loading leaflet again?!");
             loadLeaflet();
           }
           marker = new L.Marker([lat, lng], {
@@ -114,6 +126,7 @@
       } else {
         console.log("map exist..draw something?");
         // $('#mapdiv').height('350px');
+
         initMap();
         // window.map.invalidateSize();
       }
