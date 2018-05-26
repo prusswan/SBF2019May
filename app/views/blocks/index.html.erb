@@ -37,8 +37,11 @@
   }
 
   function findCoords2(id, address) {
+    var url = 'https://developers.onemap.sg/commonapi/search?searchVal=' + encodeURI(address) + '&returnGeom=Y&getAddrDetails=Y&pageNum=1';
+    // console.log("get coords", url);
+
     $.ajax({
-      url: 'https://developers.onemap.sg/commonapi/search?searchVal=' + encodeURI(address) + '&returnGeom=Y&getAddrDetails=Y&pageNum=1',
+      url: url,
       success: function(result){
         console.log('geocoding', result);
 
@@ -66,8 +69,8 @@
   }
 
   function findAll() {
-    <% Block.where(lat: nil).limit(10).each do |b| %>
-      findCoords2(<%=b.id%>, "<%=b.long_address%>");
+    <% Block.where(lat: nil).limit(100).each do |b| %>
+      findCoords2(<%=b.id%>, "<%=raw b.long_address%>");
     <% end %>
   }
 
