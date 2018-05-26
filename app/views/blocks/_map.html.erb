@@ -99,8 +99,11 @@
           lng = location['LONGITUDE'];
 
           var longlat = lng + "," + lat;
-          var id = <%= params[:id] %>;
-          updateAddress(id, address, longlat, result['results']);
+
+          <% if params[:id] %>
+            var id = <%= params[:id] %>;
+            // updateAddress(id, address, longlat, result['results']);
+          <% end %>
 
           map = window.map;
 
