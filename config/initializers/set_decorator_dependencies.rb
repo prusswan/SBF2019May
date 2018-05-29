@@ -1,1 +1,1 @@
-ActiveSupportDecorators.add("#{Sbf::Engine.root}/app", "#{Rails.root}/app")
+ActiveSupportDecorators.add("#{SBF::Engine.root}/app", "#{Rails.root}/app")

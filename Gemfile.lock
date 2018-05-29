@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/prusswan/sbf.git
-  revision: ec2643cf4297d4ac39f046a32031047c9c3a2c82
+  revision: 9346e82949e391494a8c6e46a109fd7093af16bb
   specs:
-    sbf (0.0.2)
+    sbf (1.0.0)
       cancan
       rails (>= 4.0.1)
       rails_admin
