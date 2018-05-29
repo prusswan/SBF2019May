@@ -62,10 +62,18 @@
     }
 
     loadLeaflet = function() {
-      $.getJSON("https://cdn.rawgit.com/prusswan/SBF2018May/9532b0f9/public/blocks_all.geojson", function(data) {
+      var blocksPromise = $.getJSON("https://cdn.rawgit.com/prusswan/SBF2018May/9532b0f9/public/blocks_all.geojson");
+      var stopsPromise = $.getJSON("/busstops_all.geojson");
+
+      $.when(blocksPromise, stopsPromise).then(function(data, data2) {
         window.blocksData = data;
+        window.stopsData = data2;
         loadScript(urls[0], recursiveCallback);
+      }).fail(function(jqxhr, textStatus, errorThrown) {
+        console.log(errorThrown);
       });
+
+
     };
 
     initMap = function() {
@@ -119,6 +127,37 @@
       var markers = L.markerClusterGroup();
       markers.addLayer(geoJsonLayer);
       newMap.addLayer(markers);
+
+      var busIcon = L.icon({
+        iconUrl: 'https://www.mytransport.sg/img/bus.gif',
+        iconSize: [20, 29]
+      });
+
+      var busLayer = L.geoJson(window.stopsData, {
+        pointToLayer: function(feature, latlng) {
+          return new L.marker(latlng, {
+            icon: busIcon
+          });
+        },
+        onEachFeature: function(feature, layer) {
+          var popup = feature.id + ': ' + feature.properties.Description;
+          layer.bindPopup(popup);
+        }
+      });
+      var busMarkers = L.markerClusterGroup({
+        disableClusteringAtZoom: 16
+      });
+      busMarkers.addLayer(busLayer);
+      newMap.addLayer(busMarkers);
+
+      newMap.on('zoomend', function() {
+        if (newMap.getZoom() < 16) {
+          newMap.removeLayer(busMarkers);
+        }
+        else {
+          newMap.addLayer(busMarkers);
+        }
+      })
 
       window.map = newMap;
       // $('#mapdiv').height('350px');
