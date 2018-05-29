@@ -62,6 +62,8 @@ group :development, :test do
   # for pushing db seed to heroku
   # gem 'heroku', '~> 2.40'
   # gem 'taps'
+
+  gem 'dotenv-rails'
 end
 
 group :development do
