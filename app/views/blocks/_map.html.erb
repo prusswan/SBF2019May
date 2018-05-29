@@ -62,7 +62,7 @@
     }
 
     loadLeaflet = function() {
-      $.getJSON("/blocks/all.geojson", function(data) {
+      $.getJSON("https://cdn.rawgit.com/prusswan/SBF2018May/9532b0f9/public/blocks_all.geojson", function(data) {
         window.blocksData = data;
         loadScript(urls[0], recursiveCallback);
       });
