@@ -63,7 +63,7 @@
 
     loadLeaflet = function() {
       var blocksPromise = $.getJSON("https://cdn.rawgit.com/prusswan/SBF2018May/9532b0f9/public/blocks_all.geojson");
-      var stopsPromise = $.getJSON("/busstops_all.geojson");
+      var stopsPromise = $.getJSON("https://cdn.rawgit.com/prusswan/SBF2018May/b6d1f0a9/public/busstops_all.geojson");
 
       $.when(blocksPromise, stopsPromise).then(function(data, data2) {
         window.blocksData = data;
