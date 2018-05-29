@@ -43,19 +43,21 @@ module ApplicationHelper
 
   def write_stops_geojson
     stops = get_stops
+    geojson_file = "public/busstops_all.geojson"
 
     entity_factory = RGeo::GeoJSON::EntityFactory.instance
     factory = RGeo::Geographic.simple_mercator_factory
 
-    result = stops.map do |s|
-      entity_factory.feature(factory.point(b.long, b.lat), s['BusStopCode'], s)
+    result = stops.map.with_index do |s, i|
+      entity_factory.feature(factory.point(s['Longitude'], s['Latitude']), s['BusStopCode'], s)
     end
 
-        render json: RGeo::GeoJSON.encode(entity_factory.feature_collection(result))
-      File.open(geojson_file,"w") do |f|
-        json = RGeo::GeoJSON.encode(entity_factory.feature_collection(result))
-        f.write(json)
-      end
+    File.open(geojson_file,"w") do |f|
+      json = RGeo::GeoJSON.encode(entity_factory.feature_collection(result)).to_json
+      f.write(json)
+    end
+
+    result
   end
 
 end
