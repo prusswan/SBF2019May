@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'sbf', github: 'prusswan/sbf' #, branch: 'engine-migrations'
 # gem 'sbf', path: '~/Projects/sbf'
+gem 'rails_admin', github: 'prusswan/rails_admin' # path: '~/Projects/rails_admin'
 
 gem 'settingslogic'
 gem 'activesupport-decorators', '~> 1.0'
