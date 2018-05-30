@@ -21,6 +21,9 @@ RailsAdmin.config do |config|
 
   config.main_app_name = ['SBF', Rails.application.class.parent_name.split(/SBF/i).last.titleize]
 
+  # https://github.com/sferik/rails_admin/issues/3014
+  config.excluded_models = ['ActiveStorage::Blob', 'ActiveStorage::Attachment']
+
   ## == Gravatar integration ==
   ## To disable Gravatar integration in Navigation Bar set to false
   # config.show_gravatar = true
