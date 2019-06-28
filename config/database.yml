@@ -7,7 +7,7 @@
 default: &default
   adapter: mysql2
   encoding: utf8
-  database: sbf2018nov
+  database: sbf2019may
   pool: 5
   timeout: 5000
   username: root
