@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.4'
+ruby '2.4.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
@@ -52,7 +52,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   # gem 'capybara'
   gem 'poltergeist'
-  gem 'capybara-webkit'
+  # gem 'capybara-webkit'
   gem 'capybara-selenium'
   # gem 'chromedriver-helper'
 
@@ -82,9 +82,10 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15', '< 4.0'
-  gem 'selenium-webdriver'
+  #gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  #gem 'chromedriver-helper'
+  gem 'webdrivers', '~> 4.0'
 end
 
 group :production do
