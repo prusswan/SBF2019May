@@ -170,7 +170,7 @@ GEM
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
     public_suffix (3.1.1)
-    puma (3.11.4)
+    puma (3.12.3)
     rack (2.0.7)
     rack-pjax (1.0.0)
       nokogiri (~> 1.5)
@@ -308,7 +308,7 @@ DEPENDENCIES
   mysql2 (~> 0.5.0)
   pg
   poltergeist
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (~> 5.2.0)
   rails_12factor
   rails_admin!
